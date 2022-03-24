@@ -2,11 +2,11 @@
 
 # Go to github and get the runner_token
 #Add this following env to .env
-# check .env.example
+# check env.example
 #---------------------------------------------------
 #runner_token=footoken
-#username="samchan2022"
-#repo_name="nodejs-cicd-exercise"
+#username=samchan2022
+#repo_name=nodejs-cicd-exercise
 #---------------------------------------------------
 
 # Load .env
@@ -18,7 +18,7 @@ fi
 docker run \
    -d \
   --restart always \
-  --name github-runner \
+  --name "gh-runner-$repo_name"\
   -e REPO_URL="https://github.com/$username/$repo_name" \
   -e RUNNER_NAME="node-runner" \
   -e RUNNER_TOKEN="${runner_token}" \
